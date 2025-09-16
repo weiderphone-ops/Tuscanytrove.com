@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tuscany Trove & Co.</title>
+<style>
+  :root{
+    /* theme colors (tweak if you want lighter/darker) */
+    --bg: #181612;        /* page background (continues “color to the bottom”) */
+    --card: #221e19;     /* card background */
+    --text: #f2f2f2;     /* main text on dark */
+    --muted: #c9c6c1;    /* secondary text */
+    --brand: #b08d57;    /* gold accent */
+  }
+
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);     /* << no more white page */
+    color: var(--text);
+  }
+
+  /* HERO */
+  .hero{
+    position: relative;
+    background: url('gold_necklace.png') center/cover no-repeat;
+    height: 100svh;            /* fills full viewport on mobile too */
+    min-height: 100vh;         /* desktop fallback */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: rgba(0,0,0,0.40); /* darken image */
+  }
+  .hero-content{
+    position: relative; z-index: 1;
+    padding: 0 16px;
+  }
+  .hero h1{ font-size: clamp(2.2rem, 5vw, 3.5rem); margin: 0 0 10px; }
+  .hero p{ font-size: clamp(1rem, 2.2vw, 1.25rem); color:#eee; margin:0; }
+
+  /* Signup pinned at bottom of hero */
+  .hero-signup{
+    position: absolute; z-index: 2;
+    left: 50%; transform: translateX(-50%);
+    bottom: 36px;
+    display:flex; gap:10px; flex-wrap: wrap; justify-content:center;
+    padding: 0 16px;
+  }
+  .hero-signup input[type="email"]{
+    padding: 12px 14px; width: min(360px, 80vw);
+    border: none; border-radius: 6px; font-size: 1rem;
+  }
+  .hero-signup button{
+    padding: 12px 20px; border: 0; border-radius: 6px;
+    background: var(--brand); color:#fff; font-size:1rem; cursor:pointer;
+  }
+
+  /* GALLERY (sits on same dark bg as body) */
+  .gallery{
+    max-width: 1200px; margin: 0 auto;
+    padding: 60px 24px;
+    display: grid; gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .card{
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; overflow: hidden; text-align: center;
+    padding-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  }
+  .card img{ width:100%; height:auto; display:block; }
+  .card h3{ margin: 14px 0 6px; font-size:1.1rem; }
+  .card p{ margin: 0 0 14px; color: var(--muted); font-size:.95rem; }
+  .card a{
+    display:inline-block; padding:10px 16px; background: var(--brand);
+    color:#fff; text-decoration:none; border-radius:6px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Tuscany Trove & Co.</h1>
+      <p>Not Just Jewelry. A Point of View.</p>
+    </div>
+
+    <!-- EMAIL SIGNUP pinned to bottom of the hero -->
+    <div class="hero-signup">
+      <!-- Swap this simple form with your Flodesk embed when ready -->
+      <form>
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Join Waitlist</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- GALLERY – only real pieces (gold necklace card removed) -->
+  <section class="gallery">
+    <div class="card">
+      <img src="where_sky_meets_salt.png" alt="Where Sky Meets Salt" />
+      <h3>Where Sky Meets Salt</h3>
+      <p>Exclusive — Join the list to purchase.</p>
+      <a href="#">Join Waitlist</a>
+    </div>
+
+    <div class="card">
+      <img src="dune_line.jpeg" alt="Dune Line" />
+      <h3>Dune Line</h3>
+      <p>Exclusive — Join the list to purchase.</p>
+      <a href="#">Join Waitlist</a>
+    </div>
+  </section>
+
+</body>
+</html>
