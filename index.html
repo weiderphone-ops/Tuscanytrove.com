@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tuscany Trove & Co.</title>
+  <!-- Google Font: Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -23,7 +25,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.35); /* subtle dark overlay for readability */
+      background: rgba(0, 0, 0, 0.35);
     }
     .hero-overlay {
       position: relative;
@@ -36,29 +38,28 @@
       padding: 40px 20px;
       text-align: center;
     }
-
-    /* Brand at Top */
-    .hero-top h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .hero-content {
+      margin-top: 60px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
       letter-spacing: 2px;
-      font-weight: 600;
+      font-weight: 700;
+      margin: 0;
+      color: #f9f9f9;
     }
-
-    /* Tagline Centered */
-    .hero-center {
-      margin-top: 20px;
+    .hero h1 span {
+      color: #d4af37; /* Soft gold for "& Co." */
     }
-    .hero-center p {
-      font-size: 1.4rem;
+    .hero p {
+      font-size: 1.3rem;
       letter-spacing: 1px;
+      margin-top: 10px;
       color: #f0f0f0;
     }
-
-    /* Signup Lower on Page */
     .hero-signup {
-      margin-top: auto;  /* pushes it down */
-      margin-bottom: 60px;
+      margin-bottom: 60px; /* Pushed further down */
     }
     .hero-signup input[type="email"] {
       padding: 12px;
@@ -129,7 +130,7 @@
       opacity: 0.9;
     }
 
-    /* Signup (Bottom redundancy) */
+    /* Signup Section (Bottom redundancy) */
     .signup {
       text-align: center;
       padding: 60px 20px;
@@ -168,17 +169,11 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-overlay">
-      <!-- Brand at Top -->
-      <div class="hero-top">
-        <h1>Tuscany Trove & Co.</h1>
+      <div class="hero-content">
+        <h1>Tuscany Trove <span>& Co.</span></h1>
+        <p>Minimalist. Signature Pieces. A Point of View.</p>
       </div>
-
-      <!-- Tagline Centered -->
-      <div class="hero-center">
-        <p>Jewelry, refined. Clean lines. Precious metals, a quiet presence. Elegance to live in, remembered forever.</p>
-      </div>
-
-      <!-- Signup at Bottom -->
+      <!-- Signup pinned lower -->
       <div class="hero-signup">
         <form>
           <input type="email" placeholder="Enter your email" required>
@@ -188,7 +183,7 @@
     </div>
   </section>
 
-  <!-- Gallery (Exclusive Art Pieces) -->
+  <!-- Gallery Section -->
   <section class="gallery">
     <div class="card">
       <img src="where_sky_meets_salt.png" alt="Where Sky Meets Salt">
@@ -204,7 +199,7 @@
     </div>
   </section>
 
-  <!-- Signup (Bottom redundancy) -->
+  <!-- Signup Bottom -->
   <section class="signup" id="waitlist">
     <h2>Be the first to know when we launch</h2>
     <form>
