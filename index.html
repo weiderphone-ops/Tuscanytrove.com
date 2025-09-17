@@ -1,108 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tuscany Trove & Co.</title>
-  <meta name="description" content="Tuscany Trove & Co. — minimalist jewelry, signature pieces, a point of view." />
   <style>
-    :root{
-      --gold:#b08d57;
-      --heroShade:rgba(0,0,0,.38);
-      --text:#ffffff;
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Georgia', serif;
+      color: #fff;
+      text-align: center;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Helvetica Neue", Arial, sans-serif;
-      background:#fdfdfc;
-      color:#2a2a2a;
+    .hero {
+      background: url('hero-image.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      position: relative;
     }
-
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height:100vh;
-      color:var(--text);
-      background:url('gold_necklace.png') center/cover no-repeat;
-      display:grid;
-      grid-template-rows:auto 1fr auto; /* top / spacer / bottom */
+    .hero-head {
+      margin-top: 20px;
     }
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background:var(--heroShade); /* ensure strong contrast */
-      z-index:0;
+    .brand {
+      font-size: 48px;
+      font-weight: bold;
     }
-    .hero > *{position:relative; z-index:1}
-
-    /* TOP: Brand */
-    .hero-head{
-      text-align:center;
-      padding:24px 16px 0;
-      text-shadow:0 2px 8px rgba(0,0,0,.35);
+    .highlight {
+      color: #f5b800;
     }
-    .brand{
-      font-size:clamp(28px, 4.2vw, 56px);
-      margin:0 0 8px;
-      font-weight:700;
-      letter-spacing:.4px;
+    .brand-line {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #ddd;
     }
-    .brand .highlight{ color:#d4af37; }
-
-    .brand-line{
-      margin:0 auto;
-      max-width:860px;
-      font-size:clamp(14px, 1.4vw, 18px);
-      font-weight:300;
-      line-height:1.55;
-      opacity:.96;
+    .cta-line {
+      position: absolute;
+      top: 60%; /* adjust this % to move the line up/down */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #fff;
+      margin: 0;
     }
-
-    /* BOTTOM: tagline + form */
-    .hero-cta{
-      text-align:center;
-      padding:0 16px 8vh; /* push down on the image */
-      text-shadow:0 2px 8px rgba(0,0,0,.35);
+    .hero-cta {
+      margin-bottom: 50px;
     }
-    .tagline{
-      margin:0 auto 18px;
-      max-width:900px;
-      font-size:clamp(15px, 1.5vw, 20px);
-      font-weight:600;
-      letter-spacing:.2px;
-      color:#fff;
-      opacity:.98;
+    .signup input {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 8px;
+      width: 250px;
+      max-width: 80%;
     }
-    .signup{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
+    .signup button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #f5b800;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform .06s ease, opacity .2s ease;
     }
-    .signup input[type="email"]{
-      width:min(320px, 80vw);
-      padding:12px 14px;
-      border:none;
-      border-radius:6px;
-      font-size:16px;
+    .signup button:hover {
+      opacity: .92;
     }
-    .signup button{
-      padding:12px 22px;
-      background:var(--gold);
-      color:#fff;
-      border:none;
-      border-radius:6px;
-      font-size:16px;
-      cursor:pointer;
-      transition:transform .06s ease, opacity .2s ease;
+    .signup button:active {
+      transform: translateY(1px);
     }
-    .signup button:hover{ opacity:.92 }
-    .signup button:active{ transform:translateY(1px) }
   </style>
 </head>
 <body>
-
   <!-- HERO -->
   <section class="hero">
     <!-- top -->
@@ -113,12 +86,17 @@
       </p>
     </header>
 
-    <!-- middle (spacer) -->
-    <div></div>
+    <!-- tagline under pendant -->
+    <p class="cta-line">Minimalist. Signature pieces. A point of view.</p>
 
     <!-- bottom -->
     <div class="hero-cta">
-      <p class="tagline">Minimalist. Signature pieces. A point of view.</p>
       <form class="signup">
         <input type="email" placeholder="Enter your email" required>
         <button type="submit">Join Waitlist</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
+
