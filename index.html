@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tuscany Trove & Co.</title>
   <style>
-    body, html {
+    /* Base */
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Georgia', serif;
       color: #fff;
+      background: #000;              /* prevents any white gutters while scrolling */
       text-align: center;
     }
 
-    /* HERO SECTION */
+    /* HERO (full screen image) */
     .hero {
-      background: url('hero-image.jpg') no-repeat center center/cover;
-      height: 100vh;
+      position: relative;
+      height: 100svh;                /* mobile-safe viewport height */
+      min-height: 100vh;
+      background: url('hero-image.jpg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding: 40px;
-    }
-    .hero-head {
-      margin-top: 20px;
-    }
-    .brand {
-      font-size: 48px;
-      font-weight: bold;
-    }
-    .highlight {
-      color: #f5b800;
-    }
-    .brand-line {
-      font-size: 18px;
-      margin-top: 10px;
-      color: #ddd;
+      overflow: hidden;
     }
 
-    /* AFTER HERO SECTION (dark background with artwork + waitlist) */
-    .after-hero {
-      background-color: #111; /* dark background */
-      padding: 60px 20px;
+    /* subtle bottom gradient so text stays readable on light photos */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+                  rgba(0,0,0,0) 60%,
+                  rgba(0,0,0,.55) 85%,
+                  rgba(0,0,0,.85) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Brand at top */
+    .hero-head { margin-top: 8px; z-index: 2; }
+    .brand { font-size: 48px; font-weight: bold; margin: 0; }
+    .highlight { color: #f5b800; }
+    .brand-line { font-size: 18px; margin-top: 10px; color: #ddd; }
+
+    /* Bottom overlay content inside hero */
+    .hero-bottom {
+      position: absolute;
+      left: 50%;
+      bottom: 40px;
+      transform: translateX(-50%);
+      width: min(720px, 92%);
+      z-index: 2;
     }
     .tagline {
       font-size: 20px;
-      margin-bottom: 30px;
+      margin: 0 0 16px;
       font-style: italic;
       line-height: 1.6;
-      color: #fff;
-    }
-    .cta-line {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.75);
     }
     .signup input {
       padding: 12px;
       font-size: 16px;
       border: none;
       border-radius: 6px;
+      width: 260px;
+      max-width: 72%;
       margin-right: 8px;
-      width: 250px;
-      max-width: 80%;
     }
     .signup button {
-      padding: 12px 24px;
+      padding: 12px 22px;
       font-size: 16px;
       background: #f5b800;
       border: none;
@@ -74,33 +81,65 @@
       cursor: pointer;
       transition: transform .06s ease, opacity .2s ease;
     }
-    .signup button:hover {
-      opacity: .92;
+    .signup button:hover { opacity: .92; }
+    .signup button:active { transform: translateY(1px); }
+
+    /* ARTWORK SECTION (black background) */
+    .artwork-section {
+      background: #0b0b0b;           /* deep black */
+      padding: 80px 20px;
     }
-    .signup button:active {
-      transform: translateY(1px);
+    .artwork-section h2 {
+      font-size: 22px;
+      letter-spacing: .03em;
+      font-weight: 500;
+      margin: 0 0 24px;
+      color: #cfcfcf;
+    }
+    .artwork-section img {
+      display: block;
+      width: min(980px, 94%);
+      height: auto;
+      margin: 0 auto 32px;
+      border-radius: 6px;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 640px) {
+      .brand { font-size: 36px; }
+      .brand-line { font-size: 16px; }
+      .tagline { font-size: 18px; }
+      .hero-bottom { bottom: 24px; }
+      .signup input { width: 66%; }
     }
   </style>
 </head>
 <body>
+
   <!-- HERO -->
   <section class="hero">
     <header class="hero-head">
       <h1 class="brand">Tuscany Trove <span class="highlight">&amp; Co.</span></h1>
       <p class="brand-line">Minimalist. Signature pieces. A point of view.</p>
     </header>
+
+    <!-- Bottom-centered overlay -->
+    <div class="hero-bottom">
+      <p class="tagline">
+        Jewelry, refined. Clean lines. Precious metals, a quiet presence. Elegance to live in, remembered forever.
+      </p>
+      <form class="signup">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Join Waitlist</button>
+      </form>
+    </div>
   </section>
 
-  <!-- AFTER HERO SECTION -->
-  <section class="after-hero">
-    <p class="tagline">
-      Jewelry, refined. Clean lines. Precious metals, a quiet presence. Elegance to live in, remembered forever.
-    </p>
-    <p class="cta-line">Join our waitlist to be the first to know.</p>
-    <form class="signup">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Join Waitlist</button>
-    </form>
+  <!-- ARTWORK (BLACK BACKGROUND) -->
+  <section class="artwork-section">
+    <h2>From our studio</h2>
+    <img src="artwork.jpg" alt="Tuscany Trove artwork" />
   </section>
+
 </body>
 </html>
